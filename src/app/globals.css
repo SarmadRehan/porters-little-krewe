@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Brand colors only, sampled from their logo (Instagram, 2026): royal blue #062f8f ("Porters" and the
+   DAYCARE ribbon), red #cf1519 ("Little", left handprint), sunshine yellow #fbc10a ("Krewe", the sun)
+   and white, the ❤️💙💛 of their posts. The rest are tints and shades of those three. Yellow is never
+   used for text on white; it's a fill under blue text (7.4:1). Red text on white is 5.4:1. */
+@theme {
+  --color-paper: #fffbf2;
+  --color-cream: #fff3d1;
+  --color-sun: #fbc10a;
+  --color-sun-dark: #e0a800;
+  --color-blue: #062f8f;
+  --color-blue-dark: #04226a;
+  --color-blue-soft: #e9eefb;
+  --color-sky: #b6c8e7;
+  --color-red: #cf1519;
+  --color-red-dark: #a91015;
+  --color-red-soft: #fde9e9;
+  --color-ink: #101b3f;
+  --color-slate: #48557a;
+}
+
+/* `inline` so utilities reference the next/font variables directly rather than resolving them on :root. */
+@theme inline {
+  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-rounded, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* The three-color stripe from their flyers' top edge, used as a hairline under the header and banners. */
+.krewe-stripe {
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--color-red) 0 33.3%,
+    var(--color-sun) 33.3% 66.6%,
+    var(--color-blue) 66.6% 100%
+  );
+}
+
+/* Soft sunny glow behind the hero, like the sun on their logo. */
+.sunny {
+  background:
+    radial-gradient(38rem 26rem at 82% 18%, rgb(251 193 10 / 0.28), transparent 70%),
+    radial-gradient(34rem 24rem at 8% 92%, rgb(6 47 143 / 0.09), transparent 70%),
+    var(--color-paper);
+}
+
+/* A soft, slightly blue shadow for the rounded cards. */
+.soft-card {
+  box-shadow:
+    0 1px 2px rgb(16 27 63 / 0.06),
+    0 12px 32px -12px rgb(6 47 143 / 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
